@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5aac2e41843d484a9af361ca761c5e0, type: 3}
+  m_Name: Unlike Pluto - Everything Black
+  m_EditorClassIdentifier: 
+  Name: Unlike Pluto - Everything Black
+  Music: {fileID: 8300000, guid: f0f528d683ebca94bbe3fc85c6ac1d95, type: 3}
+  Threshold: 0.4
+  StageLightMultiplier: 2
+  BaseColor1: {r: 1, g: 1, b: 1, a: 0}
+  BaseColor2: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 0}
+  SecondaryColor1: {r: 0, g: 0, b: 0, a: 1}
+  SecondaryColor2: {r: 0, g: 0, b: 0, a: 1}
+  accentsColor1: {r: 0, g: 0, b: 0, a: 1}
+  accentsColor2: {r: 0, g: 0, b: 0, a: 1}
+  backgroundColor1: {r: 0, g: 0, b: 0, a: 0}
+  backgroundColor2: {r: 1, g: 1, b: 1, a: 0}
+  MusicChanged: 1

@@ -1040,8 +1040,8 @@ MonoBehaviour:
   ShowStartupWindow: 0
   LastVersion: 0.0
   LimitationRange:
-    position: {x: 55.97266, y: -18.20076, z: 5.7097964}
-    size: {x: 24.677177, y: 4.053261, z: 8.692105}
+    position: {x: 29.000381, y: -5.5750885, z: 7.756209}
+    size: {x: 78.621735, y: 30.912638, z: 8.692105}
     GrowToSelection: 1
   DidConfigureLimitationRangeAtLeastOnce: 1
   UseAdvancedOption: 1
@@ -1058,8 +1058,8 @@ MonoBehaviour:
   velocityIterations: 10
   solverIterations: 10
   useLowQualityConvexCollidersOnSelection: 1
-  UseLimitationZone: 0
-  Constraints: 0
+  UseLimitationZone: 1
+  Constraints: 112
   JungleLogo: {fileID: 2800000, guid: 1e021604d3033604dbbdf0af3615fbe5, type: 3}
   GetStartedArrow: {fileID: 2800000, guid: 6f19a967e55eb7a4db62b3cd08e30764, type: 3}
   Question: {fileID: 0}
@@ -1087,8 +1087,8 @@ MonoBehaviour:
   MaxNormalSpeedFactor: 0.7
   debugCollisionDirection: 0
   MaxPhysXIterationPerUpdate: 1
-  LimitBoundSize: 1
-  maxBoundAxisLength: 8.236176
+  LimitBoundSize: 0
+  maxBoundAxisLength: 8.909672
   TagLimitation: 0
   tagSelected: Untagged
   ResetToDefaultPhysicsValues: 0
@@ -1098,7 +1098,7 @@ MonoBehaviour:
   StaticObjectsLayer: 0
   AlignStrength: 1
   ExtraDragForRotationMode: 100
-  GravityStrength: {x: -1.4227869e-10, y: -9.777317, z: -0.0000011655471}
+  GravityStrength: {x: 0, y: -9.80999, z: -0.000001169442}
   LimitBodyVelocityInGravityMode: 0
   SetGravityInDirectionOfMouse: 0
   PausePositionReajustment: 1

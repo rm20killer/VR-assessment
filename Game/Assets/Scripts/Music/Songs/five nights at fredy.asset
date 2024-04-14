@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5aac2e41843d484a9af361ca761c5e0, type: 3}
+  m_Name: five nights at fredy
+  m_EditorClassIdentifier: 
+  Name: The Living Tombstone - Five Nights at Freddy's
+  Music: {fileID: 8300000, guid: de27fe850d39c7a4e9a049c807621b52, type: 3}
+  Threshold: 0.4
+  StageLightMultiplier: 1
+  BaseColor1: {r: 0.16862746, g: 0.08627451, b: 0.18039216, a: 0}
+  BaseColor2: {r: 0.48235297, g: 0.31764707, b: 0.5764706, a: 0}
+  SecondaryColor1: {r: 0.6784314, g: 0.7607844, b: 0.33333334, a: 0}
+  SecondaryColor2: {r: 0.63529414, g: 0.61960787, b: 0.4901961, a: 0}
+  accentsColor1: {r: 0.7607844, g: 0.9725491, b: 0.86274517, a: 0}
+  accentsColor2: {r: 1, g: 0, b: 0.3333335, a: 0}
+  backgroundColor1: {r: 0.28235295, g: 0.227451, b: 0.32156864, a: 0}
+  backgroundColor2: {r: 0.47450984, g: 0.4156863, b: 0.46274513, a: 0}
+  MusicChanged: 1

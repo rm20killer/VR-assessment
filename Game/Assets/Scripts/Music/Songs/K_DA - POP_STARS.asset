@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5aac2e41843d484a9af361ca761c5e0, type: 3}
+  m_Name: K_DA - POP_STARS
+  m_EditorClassIdentifier: 
+  Name: K_DA - POP_STARS
+  Music: {fileID: 8300000, guid: c0bf7dc35b7987e4b808cfa2077c2a5b, type: 3}
+  Threshold: 0.2
+  StageLightMultiplier: 1.5
+  BaseColor1: {r: 0.4333334, g: 0, b: 1, a: 0}
+  BaseColor2: {r: 0, g: 0.6730771, b: 1, a: 0}
+  SecondaryColor1: {r: 0.9960785, g: 0.21176472, b: 0.8078432, a: 1}
+  SecondaryColor2: {r: 0.5058824, g: 0.9333334, b: 0.9921569, a: 1}
+  accentsColor1: {r: 0.9716981, g: 0.7391393, b: 0.10450332, a: 1}
+  accentsColor2: {r: 0.86666673, g: 0.3647059, b: 0.15686275, a: 1}
+  backgroundColor1: {r: 0.9645648, g: 0, b: 1, a: 0}
+  backgroundColor2: {r: 0, g: 0.43234205, b: 1, a: 0}
+  MusicChanged: 1

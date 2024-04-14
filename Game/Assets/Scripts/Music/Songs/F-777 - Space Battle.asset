@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5aac2e41843d484a9af361ca761c5e0, type: 3}
+  m_Name: F-777 - Space Battle
+  m_EditorClassIdentifier: 
+  Name: F-777 - Space Battle
+  Music: {fileID: 8300000, guid: 576f8ba2e6225c74bb4418b17ef8f261, type: 3}
+  Threshold: 0.22
+  StageLightMultiplier: 1
+  BaseColor1: {r: 0.5372549, g: 0.72156864, b: 0.79215693, a: 0}
+  BaseColor2: {r: 0.43137258, g: 0.48627454, b: 0.6156863, a: 0}
+  SecondaryColor1: {r: 0.6313726, g: 0.6509804, b: 0.8235295, a: 0}
+  SecondaryColor2: {r: 0.14901961, g: 0.16862746, b: 0.34117648, a: 0}
+  accentsColor1: {r: 0.5764706, g: 0.19215688, b: 0.9450981, a: 0}
+  accentsColor2: {r: 0.30588236, g: 0.9294118, b: 0.26666668, a: 0}
+  backgroundColor1: {r: 0.31764707, g: 0.3647059, b: 0.5058824, a: 0}
+  backgroundColor2: {r: 0.1137255, g: 0.12941177, b: 0.28627452, a: 0}
+  MusicChanged: 1

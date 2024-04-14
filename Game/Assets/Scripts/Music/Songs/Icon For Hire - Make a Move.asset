@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5aac2e41843d484a9af361ca761c5e0, type: 3}
+  m_Name: Icon For Hire - Make a Move
+  m_EditorClassIdentifier: 
+  Name: 'Icon For Hire - Make a Move '
+  Music: {fileID: 8300000, guid: e5d1004f07e8c564792e3fac02c3108c, type: 3}
+  Threshold: 0.2
+  StageLightMultiplier: 1
+  BaseColor1: {r: 0.8980393, g: 0.3921569, b: 0.6117647, a: 0}
+  BaseColor2: {r: 0.69803923, g: 0.854902, b: 0.85098046, a: 0}
+  SecondaryColor1: {r: 0.17254902, g: 0.6039216, b: 0.76470596, a: 0}
+  SecondaryColor2: {r: 0.68235296, g: 0.854902, b: 0.854902, a: 0}
+  accentsColor1: {r: 0.9215687, g: 0.4156863, b: 0.63529414, a: 0}
+  accentsColor2: {r: 0.2627451, g: 0.26666668, b: 0.19607845, a: 0}
+  backgroundColor1: {r: 0.45882356, g: 0.16470589, b: 0.20784315, a: 0}
+  backgroundColor2: {r: 0.28235295, g: 0.25490198, b: 0.21568629, a: 0}
+  MusicChanged: 1

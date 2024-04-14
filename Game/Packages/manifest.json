@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.ibicha.youtube-player": "file:C:/Users/rm20k/Downloads/UnityYoutubePlayer-3.0.0/UnityYoutubePlayer-3.0.0/Packages/com.ibicha.youtube-player",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.feature.development": "1.0.1",
     "com.unity.feature.vr": "1.0.0",
