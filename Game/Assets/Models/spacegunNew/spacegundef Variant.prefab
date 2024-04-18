@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480c3dd7a65f577479f3c2b84b64ef82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectilePrefab: {fileID: 7144719421318841467, guid: 78a9008970c88a7418552b74ff721e23, type: 3}
+  ProjectilePrefab: {fileID: 4812777098084798749, guid: 22dcee8211b4a9f4cb5cc006b80e40bb, type: 3}
   GunPoint: {fileID: 6744463355188366631}
   LaunchSpeed: 1000
 --- !u!114 &6093422411594553165
