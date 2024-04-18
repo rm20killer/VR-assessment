@@ -63,6 +63,8 @@ public class SoundCube : MonoBehaviour
 
     void Update()
     {        
+        // Colour1 = UnityEngine.Random.ColorHSV();
+        // Colour2 = UnityEngine.Random.ColorHSV();
         float strength = _FFT.GetBandValue(_FrequencyBandIndex, _FreqBands);
         if (colour)
             if(UseSecondColour)

@@ -1040,8 +1040,8 @@ MonoBehaviour:
   ShowStartupWindow: 0
   LastVersion: 0.0
   LimitationRange:
-    position: {x: 29.000381, y: -5.5750885, z: 7.756209}
-    size: {x: 78.621735, y: 30.912638, z: 8.692105}
+    position: {x: 37.900536, y: -5.5750885, z: 44.31044}
+    size: {x: 81.48595, y: 30.912636, z: 139.03506}
     GrowToSelection: 1
   DidConfigureLimitationRangeAtLeastOnce: 1
   UseAdvancedOption: 1
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   solverIterations: 10
   useLowQualityConvexCollidersOnSelection: 1
   UseLimitationZone: 1
-  Constraints: 112
+  Constraints: 0
   JungleLogo: {fileID: 2800000, guid: 1e021604d3033604dbbdf0af3615fbe5, type: 3}
   GetStartedArrow: {fileID: 2800000, guid: 6f19a967e55eb7a4db62b3cd08e30764, type: 3}
   Question: {fileID: 0}

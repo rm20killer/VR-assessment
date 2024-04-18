@@ -81,6 +81,9 @@ public class Lazer_controller : MonoBehaviour
     }
     void Update()
     {        
+        //give Colour1 a random value
+        // Colour1 = UnityEngine.Random.ColorHSV();
+        // Colour2 = UnityEngine.Random.ColorHSV();
         float strength = FFT.GetBandValue(FrequencyBandIndex, FreqBands) * StrengthScalar;
         
         if(strength < _MusicController.MusicScript.Threshold * ThresholdMultiplier)

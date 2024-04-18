@@ -58,14 +58,20 @@ public class MusicController : MonoBehaviour
     
     void UpdateLight()
     {
+        // Color Colour1 = UnityEngine.Random.ColorHSV();
+        // Color Colour2 = UnityEngine.Random.ColorHSV();
         float strength = FFT.GetBandValue(LightFrequencyBandIndex, FreqBands) * MusicScript.StageLightMultiplier;
         LightColour.SetColor("_EmissionColor", Color.Lerp(MusicScript.BaseColor1 * strength * StrengthScalar, MusicScript.BaseColor2 *StrengthScalar *strength, strength));
+        // LightColour.SetColor("_EmissionColor", Color.Lerp(Colour1 * strength * StrengthScalar, Colour2 *StrengthScalar *strength, strength));
     }
 
     void UpdateOther()
     {
+        // Color Colour1 = UnityEngine.Random.ColorHSV();
+        // Color Colour2 = UnityEngine.Random.ColorHSV();
         float strength = FFT.GetBandValue(StageLightFrequencyBandIndex, FreqBands);
         StageLightColour.SetColor("_EmissionColor", Color.Lerp(MusicScript.BaseColor1 * strength * StrengthScalarStage, MusicScript.BaseColor2 *StrengthScalarStage *strength, strength));
+        // StageLightColour.SetColor("_EmissionColor", Color.Lerp(Colour1 * strength * StrengthScalarStage, Colour2 *StrengthScalarStage *strength, strength));
     }
     
     void OnDestroy()  
