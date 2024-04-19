@@ -21,10 +21,14 @@ public class SkyBoxChanger : MonoBehaviour
     {
         startColour = _SkyBoxMaterial.GetColor("_GroundColor");
         _MusicController = FindObjectOfType<MusicController>();
+        //listen for music changes event from the music controller
         _MusicController.OnMusicChange.AddListener(UpdateAudioSource);
         MusicChange();
     }
 
+    /// <summary>
+    /// get the colours from the music controller
+    /// </summary>
     private void MusicChange()
     {
         Colour1 = _MusicController.MusicScript.backgroundColor1;
@@ -33,6 +37,9 @@ public class SkyBoxChanger : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// change the skybox colour based on the music
+    /// </summary>
     void Update()
     {        
         float strength = _FFT.GetBandValue(_FrequencyBandIndex, _FreqBands) * _StrengthScalar;
@@ -45,7 +52,10 @@ public class SkyBoxChanger : MonoBehaviour
         _SkyBoxMaterial.SetColor("_GroundColor", Color.Lerp(startColour, Colour3, strength));
     }
     
-    void OnDestroy()  // Unsubscribe!
+    /// <summary>
+    /// remove the listener when the object is destroyed
+    /// </summary>
+    void OnDestroy()  
     {
         if (_MusicController != null)
             _MusicController.OnMusicChange.RemoveListener(UpdateAudioSource);

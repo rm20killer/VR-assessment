@@ -46,6 +46,11 @@ public class Lazer_controller : MonoBehaviour
     public float StartMiddleRotation;
     public float StartTopRotation;
     public float ThresholdMultiplier = 1.0f;
+    
+    
+    /// <summary>
+    /// set all the variables to the correct values
+    /// </summary>
     private void Start()
     {
         //look for the frequency band analyser in the scene
@@ -63,6 +68,10 @@ public class Lazer_controller : MonoBehaviour
         StartTopRotation = topLazer.transform.rotation.x;
     }
     
+    /// <summary>
+    /// change the colours used by the lazer based on the current music settings.
+    /// reset the rotation of the lazer
+    /// </summary>
     void MusicChange()
     { 
         topLazer.transform.Rotate( new Vector3(StartTopRotation, 0, 0));
@@ -79,23 +88,33 @@ public class Lazer_controller : MonoBehaviour
             Colour2 = _MusicController.MusicScript.BaseColor2;
         }
     }
+    
+    /// <summary>
+    /// update the lazer based on the music
+    /// </summary>
     void Update()
     {        
         //give Colour1 a random value
         // Colour1 = UnityEngine.Random.ColorHSV();
         // Colour2 = UnityEngine.Random.ColorHSV();
+        
+        //get the strength based on the frequency band index from the frequency band analyser
         float strength = FFT.GetBandValue(FrequencyBandIndex, FreqBands) * StrengthScalar;
         
+        //check if the strength is less than the threshold 
         if(strength < _MusicController.MusicScript.Threshold * ThresholdMultiplier)
         {
+            //if it is less than the threshold turn off the lazer
             // strength = 0.1f;
             Lazer.SetActive(false);
         }
         else
         {
+            //if it is greater than the threshold turn on the lazer
             Lazer.SetActive(true);
         }
 
+        //rotate the lazer based on the position
         if(middleLazer)
         {
             //Rotate it on the z axis
@@ -111,6 +130,7 @@ public class Lazer_controller : MonoBehaviour
 
         }
         
+        //rotate the lazer based on the position
         if(topLazer)
         {
             //Rotate it on the x axis limited to 110 degrees if it is on the floor  
@@ -119,6 +139,7 @@ public class Lazer_controller : MonoBehaviour
                 float rotationSpeed = strength * Time.deltaTime * 100.0f * (rotateRight ? 1 : -1);
                 currentAngle += rotationSpeed * rotationMultiplier;
                 
+                // Check if we need to change direction of rotation and clamp the angle
                 if (currentAngle >= MAX_ROTATION_X)
                 {
                     rotateRight = false;
@@ -139,11 +160,9 @@ public class Lazer_controller : MonoBehaviour
             }
 
             
-            //change the colour of the lazer
+            //change the colour of the lazer based on the strength of the music
             Material.SetColor(ColourName, Colour1 * strength);
-
             Color color3 = Color.Lerp(Colour1, Colour2, strength);
-            
             Material.SetColor("_EmissionColor", color3 * strength * EmissionScalar);
             
         }
@@ -151,22 +170,42 @@ public class Lazer_controller : MonoBehaviour
     }
     
     
+    /// <summary>
+    /// clamp the angle between 0 and 360
+    ///! Not used
+    /// </summary>
+    /// <param name="angle"></param>
+    /// <returns></returns>
     private float ClampAngle(float angle) 
     {
         angle = angle % 360;
         return angle < 0 ? angle + 360 : angle;
     }
     
-    void OnDestroy()  // Unsubscribe!
+    /// <summary>
+    /// destroy the listener when the object is destroyed
+    /// </summary>
+    void OnDestroy()  
     {
         if (_MusicController != null)
+        {
             _MusicController.OnMusicChange.RemoveListener(UpdateAudioSource);
+        }
     }
 
+    
+    /// <summary>
+    /// called when the music changes to update the colour of the lazer based on the music
+    /// </summary>
     void UpdateAudioSource()
     {
         MusicChange();
     }
+    
+    
+    /// <summary>
+    /// testing the rotation of the lazer
+    /// </summary>
     void OnDrawGizmos()
     {
         //show which way it is rotating

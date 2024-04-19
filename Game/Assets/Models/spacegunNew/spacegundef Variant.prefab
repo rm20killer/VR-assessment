@@ -334,10 +334,10 @@ PrefabInstance:
       addedObject: {fileID: 4310431768447369083}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 85d98fd3e1255db4a9804f7b2243fff1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9203588626090692958}
+      addedObject: {fileID: 2096772957890783577}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 85d98fd3e1255db4a9804f7b2243fff1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2096772957890783577}
+      addedObject: {fileID: 6093422411594553165}
   m_SourcePrefab: {fileID: 100100000, guid: 85d98fd3e1255db4a9804f7b2243fff1, type: 3}
 --- !u!4 &2512837185362659551 stripped
 Transform:
@@ -578,18 +578,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.14033377, y: 0.14417294, z: 0.4273628}
   m_Center: {x: 0, y: 0.11464633, z: 0}
---- !u!114 &9203588626090692958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2996218353827140197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4f2f658073e4974d800c553fe797db1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2096772957890783577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,3 +593,15 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 7144719421318841467, guid: 78a9008970c88a7418552b74ff721e23, type: 3}
   GunPoint: {fileID: 6744463355188366631}
   LaunchSpeed: 1000
+--- !u!114 &6093422411594553165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2996218353827140197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97095bb3a6cbf8c409ff245a8fe719d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

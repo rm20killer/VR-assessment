@@ -5,24 +5,23 @@ using UnityEngine;
 public class Fire : MonoBehaviour
 {        
     public GameObject ProjectilePrefab = null;
-
-    [SerializeField]
-    private Transform GunPoint = null;
-
-    [SerializeField]
-    private float LaunchSpeed = 1.0f;
-
+    public Transform GunPoint = null;
+    public float LaunchSpeed = 100.0f;
+    
+    /// <summary>
+    /// creating a new object and applying force to it
+    /// </summary>
     public void shoot()
     {
         GameObject newObject = Instantiate(ProjectilePrefab, GunPoint.position, GunPoint.rotation, null);
-
-        if (newObject.TryGetComponent(out Rigidbody rigidBody))
-            ApplyForce(rigidBody);
-    }
-
-    void ApplyForce(Rigidbody rigidBody)
-    {
-        Vector3 force = GunPoint.forward * LaunchSpeed;
-        rigidBody.AddForce(force);
+        // if the new object has a rigidbody, apply force to it
+        Rigidbody rigidBody = newObject.GetComponent<Rigidbody>();
+        if (rigidBody != null)
+        {
+            Vector3 force = GunPoint.forward * LaunchSpeed;
+            rigidBody.AddForce(force);
+        }
+        
+        
     }
 }
