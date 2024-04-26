@@ -18,6 +18,9 @@ public class VolumeSlider : MonoBehaviour
     private float zLocation;
     
     public Slider slider;
+    /// <summary>
+    /// set the x location of the slider to the max or min x location so the volume is set to at 100%
+    /// </summary>
     private void Start()
     {
         yLocation = transform.localPosition.y;
@@ -32,25 +35,35 @@ public class VolumeSlider : MonoBehaviour
             transform.localPosition = new Vector3(MaxXlocation, transform.localPosition.y, transform.localPosition.z);
         }
     }
+    
+    /// <summary>
+    /// Update the volume of the music controller based on the x location of the slider
+    /// clamp the x location of the slider to the min and max x location and lock the y and z location
+    /// </summary>
     private void Update()
     {
         float localX = transform.localPosition.x;
+        //get the volume of the slider based on the x location
         volume = Mathf.InverseLerp(MinXlocation, MaxXlocation, localX);
         if (MaxIsLowest)
         {
             volume = 1 - volume;
+            volume = Mathf.Round(volume * 100) / 100;
+            //allow for some leeway in the slider
+            if (volume is < 0.05f or > 0.95f)
+            {
+                volume = Mathf.Round(volume);
+            }
+            
         }
-        
+        //set the volume of the music controller to the volume
         musicController.volume = volume;
-        
-        
         //if localX is less than MinXlocation, set localX to MinXlocation
         if (localX < MinXlocation)
         {
             transform.localPosition = new Vector3(MinXlocation, yLocation, zLocation);
 
         }
-        //if localX is greater than MaxXlocation, set localX to MaxXlocation
         else if (localX > MaxXlocation)
         {
             transform.localPosition = new Vector3(MaxXlocation, yLocation, zLocation);
@@ -59,7 +72,6 @@ public class VolumeSlider : MonoBehaviour
         {
             transform.localPosition = new Vector3(localX, yLocation, zLocation);
         }
-        // slider.value = volume;
     }
     
     public void volumeChange()

@@ -9,7 +9,7 @@ public class Fire : MonoBehaviour
     public float LaunchSpeed = 100.0f;
     
     /// <summary>
-    /// creating a new object and applying force to it
+    /// creating a new object apply force to it if there is a rigidbody
     /// </summary>
     public void shoot()
     {
@@ -21,7 +21,5 @@ public class Fire : MonoBehaviour
             Vector3 force = GunPoint.forward * LaunchSpeed;
             rigidBody.AddForce(force);
         }
-        
-        
     }
 }

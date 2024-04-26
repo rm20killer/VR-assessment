@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.AI;
+using UnityEngine.Serialization;
 
 public class FrequencyBandAnalyser : MonoBehaviour
 {
@@ -12,46 +13,33 @@ public class FrequencyBandAnalyser : MonoBehaviour
     }
 
 
-    AudioSource _AudioSource;
-    int _FrequencyBins = 512;
+    AudioSource AudioSource;
+    int FrequencyBins = 512;
 
-    float[] _Samples;
-    float[] _SampleBuffer;
+    float[] Samples;
+    float[] SampleBuffer;
 
-    public float _SmoothDownRate = 0;
-    public float _Scalar = 1;
-
-    public bool _DrawGizmos = false;
-
-    [HideInInspector]
-    public float[] _FreqBands8;
-    [HideInInspector]
-    public float[] _FreqBands64;
+    public float SmoothDownRate = 0;
+    
+    public float[] FreqBands8;
+    public float[] FreqBands64;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        _AudioSource = GetComponent<AudioSource>();
+        AudioSource = GetComponent<AudioSource>();
 
-        _FreqBands8 = new float[8];
-        _FreqBands64 = new float[64];
-        _Samples = new float[_FrequencyBins];
-        _SampleBuffer = new float[_FrequencyBins];
+        FreqBands8 = new float[8];
+        FreqBands64 = new float[64];
+        Samples = new float[FrequencyBins];
+        SampleBuffer = new float[FrequencyBins];
     }
 
 
     void UpdateFreqBands8()
     {
-        // 22050 / 512 = 43hz per sample
-        // 10 - 60 hz
-        // 60 - 250
-        // 250 - 500
-        // 500 - 2000
-        // 2000 - 4000
-        // 4000 - 6000
-        // 6000 - 20000
-
+        
         int count = 0;
         for (int i = 0; i < 8; i++)
         {
@@ -65,26 +53,20 @@ public class FrequencyBandAnalyser : MonoBehaviour
 
             for (int j = 0; j < sampleCount; j++)
             {
-                average += _Samples[count] * (count + 1);
+                average += Samples[count] * (count + 1);
                 count++;
             }
 
             average /= count;
-            _FreqBands8[i] = average;
+            FreqBands8[i] = average;
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     void UpdateFreqBands64()
     {
-        // 22050 / 512 = 43hz per sample
-        // 10 - 60 hz
-        // 60 - 250
-        // 250 - 500
-        // 500 - 2000
-        // 2000 - 4000
-        // 4000 - 6000
-        // 6000 - 20000
-
         int count = 0;
         int sampleCount = 1;
         int power = 0;
@@ -103,62 +85,50 @@ public class FrequencyBandAnalyser : MonoBehaviour
 
             for (int j = 0; j < sampleCount; j++)
             {
-                average += _Samples[count] * (count + 1);
+                average += Samples[count] * (count + 1);
                 count++;
             }
 
             average /= count;
-            _FreqBands64[i] = average;
+            FreqBands64[i] = average;
         }
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame
+    /// </summary>
     void Update()
     {
-        //---   POPULATE SAMPLES
-        _AudioSource.GetSpectrumData(_SampleBuffer, 0, FFTWindow.BlackmanHarris);
+        //get the spectrum data from the audio source and store it in the sample buffer
+        AudioSource.GetSpectrumData(SampleBuffer, 0, FFTWindow.BlackmanHarris);
 
-        for (int i = 0; i < _Samples.Length; i++)
+        //loop through the samples and lerp the samples to the sample buffer based on the smooth down rate
+        for (int i = 0; i < Samples.Length; i++)
         {
-            if (_SampleBuffer[i] > _Samples[i])
-                _Samples[i] = _SampleBuffer[i];
+            if (SampleBuffer[i] > Samples[i])
+                Samples[i] = SampleBuffer[i];
             else
-                _Samples[i] = Mathf.Lerp(_Samples[i], _SampleBuffer[i], Time.deltaTime * _SmoothDownRate);
+                Samples[i] = Mathf.Lerp(Samples[i], SampleBuffer[i], Time.deltaTime * SmoothDownRate);
         }
 
+        //update the frequency bands
         UpdateFreqBands8();
         UpdateFreqBands64();
     }
 
+    /// <summary>
+    /// Gets the value of a frequency band
+    /// </summary>
+    /// <param name="index">The index of the frequency band</param>
+    /// <param name="bands">If it either a eight or 64 band</param>
+    /// <returns>The value of the specified frequency band</returns>
     public float GetBandValue(int index, Bands bands)
     {
         if(bands == Bands.Eight)
         {
-            return _FreqBands8[index];
+            return FreqBands8[index];
         }
-        else
-        {
-            return _FreqBands64[index];
-        }
+        return FreqBands64[index];
     }
-
-    private void OnDrawGizmos()
-    {
-        if (_DrawGizmos && Application.isPlaying)
-        {
-            float linearXPos0;
-            float linearXPos1;
-
-            
-
-            for (int i = 1; i < 63; i++)
-            {
-                linearXPos0 =  (float)(i - 1) / 63f;
-                linearXPos1 = (float)(i) / 63f;
-
-                Gizmos.color = Color.white;
-                Gizmos.DrawLine(transform.position + new Vector3(linearXPos0 * 4, _FreqBands64[i - 1] * _Scalar, 0), transform.position + new Vector3(linearXPos1 * 4, _FreqBands64[i] * _Scalar, 0));
-            }
-        }
-    }
+    
 }

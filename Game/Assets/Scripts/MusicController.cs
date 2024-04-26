@@ -22,7 +22,7 @@ public class MusicController : MonoBehaviour
     private BaseMusicScript PreviousMusicScript;
 
     private AudioSource audioSource;
-    
+    public AudioSource[] speakers;
     public float volume;
 
     /// <summary>
