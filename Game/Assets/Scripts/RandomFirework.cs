@@ -54,7 +54,7 @@ public class RandomFirework : MonoBehaviour
         {
             return;
         }
-        
+        Debug.Log("firework spawned");
         
         //spawn a random firework at a random location within the range of the box
         Vector3 spawnLocation = new Vector3(UnityEngine.Random.Range(-xRange, xRange), UnityEngine.Random.Range(-yRange, yRange), UnityEngine.Random.Range(-zRange, zRange));
@@ -75,7 +75,7 @@ public class RandomFirework : MonoBehaviour
     /// <returns></returns>
     IEnumerator ResetSpawn()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(0.2f);
         CanSpawn = true;
     }
 
